@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        *.floating{
+            float: left;
+            width: 50%;}
+        * {font-size: 15px}
+    </style>
+</head>
+<script>
+    function changeIFrameSrc(src){var iframe = document.getElementById("id_iframe");iframe.src = src}
+</script>
+<body>
+    <h1>List of HTML Files</h1>
+    <div style="height:400px; width:600px; overflow-y:scroll;">
+        <table>
+            <thead>
+                <tr>
+                    {% for param_name in param_names %}
+                        <th>{{ param_name }}</th>
+                    {% endfor %}
+                    {% for target_date in target_dates %}
+                        <th>{{ target_date }}日</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(matrix_rows) %}
+                    {% set ns = namespace(rowspan=matrix_rows, html_link=html_directory) %}
+                    <tr>
+                        {% for param_name in param_names %}
+                            {% set param_values_list = param_values[param_name] | list %}
+                            {% set this_param_rowspan = ns.rowspan // param_values_list | length %}
+                            {% if this_param_rowspan != 1 %}
+                                {% set param_value = param_values_list[(i // this_param_rowspan)] %}
+                            {% else %}
+                                {% set param_value = param_values_list[(i % param_values_list | length)] %}
+                            {% endif %}
+                            
+                            {% if i % this_param_rowspan == 0  %}
+                                <td rowspan="{{ this_param_rowspan }}">{{ param_value }}</td>
+                            {% endif %}
+
+                            {% if loop.index0 == 0 %}
+                                {% set ns.html_link = ns.html_link + '/' + param_name + param_value %}
+                            {% else %}
+                                {% set ns.html_link = ns.html_link + '_' + param_name + param_value %}
+                            {% endif %}
+
+                            {% set ns.rowspan = this_param_rowspan %}
+                        {% endfor %}
+                        {% set ns.html_link = ns.html_link + '.html' %}
+                        {% for target_date in target_dates %}
+                            <td><a href="#"  onclick="changeIFrameSrc('{{ ns.html_link }}')">Link</a></td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <iframe id="id_iframe" height="600" width="90%"></iframe>
+</body>
+</html>

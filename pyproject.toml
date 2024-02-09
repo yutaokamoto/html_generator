@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "html_project"
+version = "0.1.0"
+description = "My Python HTML project"
+authors = ["Your Name <your@email.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+jinja2 = "^3.0.0"
+loguru = "^0.5.3"
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+flake8 = "^4.0.1"
+isort = "^5.10.2"
+prettier = "*"
+
+[tool.poetry.group.dev.dependencies]
+prettier = "^0.0.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
