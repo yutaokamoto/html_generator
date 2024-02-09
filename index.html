@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      *.floating {
+        float: left;
+        width: 50%;
+      }
+      * {
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <script>
+    function changeIFrameSrc(src) {
+      var iframe = document.getElementById("id_iframe");
+      iframe.src = src;
+    }
+  </script>
+  <body>
+    <h1>List of HTML Files</h1>
+    <div style="height: 400px; width: 600px; overflow-y: scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>aaa</th>
+
+            <th>bbb</th>
+
+            <th>1日</th>
+
+            <th>2日</th>
+
+            <th>3日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">1.0</td>
+
+            <td rowspan="1">1.0</td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa1.0_bbb1.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa1.0_bbb1.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa1.0_bbb1.0.html')"
+                >Link</a
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td rowspan="1">2.0</td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa1.0_bbb2.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa1.0_bbb2.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa1.0_bbb2.0.html')"
+                >Link</a
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td rowspan="2">2.0</td>
+
+            <td rowspan="1">1.0</td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa2.0_bbb1.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa2.0_bbb1.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa2.0_bbb1.0.html')"
+                >Link</a
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td rowspan="1">2.0</td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa2.0_bbb2.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa2.0_bbb2.0.html')"
+                >Link</a
+              >
+            </td>
+
+            <td>
+              <a
+                href="#"
+                onclick="changeIFrameSrc('/Users/okamoto/Desktop/genarate_html_easily/outputs/aaa2.0_bbb2.0.html')"
+                >Link</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <iframe id="id_iframe" height="600" width="90%"></iframe>
+  </body>
+</html>
